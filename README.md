@@ -48,7 +48,7 @@ path/to/file1.txt:
 Contents of file1.txt
 
 path/to/file2.md:
-Contents of file2.md
+Contents of file2.py
 
 ...
 ```
