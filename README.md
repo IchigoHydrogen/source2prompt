@@ -14,16 +14,18 @@ pip install source2prompt
 ## Usage
 To use Source2Prompt, open a terminal or command prompt and run the following command:
 
-```bash
-s2p /path/to/directory
-```
-
-Replace /path/to/directory with the path to the directory containing the text files you want to combine.
-For example, if you want to process text files in the C:\Users\YourName\Documents\MyProject directory, run:
-
+1. Specify a directory:  
 ```bash
 s2p C:\Users\YourName\Documents\MyProject
 ```
+Replace /path/to/directory with the path to the directory containing the text files you want to combine.
+For example, if you want to process text files in the C:\Users\YourName\Documents\MyProject directory, run:
+
+2. Use the current directory:
+```bash
+s2p here
+```
+This command will process the text files in your current working directory.
 
 After running the command, Source2Prompt will generate a prompt.txt file in the specified directory. This file will contain the contents of all text files found in the directory and its subdirectories.
 
@@ -48,7 +50,7 @@ path/to/file1.txt:
 Contents of file1.txt
 
 path/to/file2.md:
-Contents of file2.py
+Contents of file2.md
 
 ...
 ```
