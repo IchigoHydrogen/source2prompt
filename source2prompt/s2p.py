@@ -10,7 +10,7 @@ def is_text_file(file_path):
     return mime_type and mime_type.startswith('text/')
 
 def should_include_file(file_name):
-    #Exclude hidden files and files with specific extensions
+    # Exclude hidden files and files with specific extensions
     excluded_patterns = r'^\..*|.*\.(pyc|pyo|pyd|dll|exe|obj|o)$'
     return not re.match(excluded_patterns, file_name, re.IGNORECASE)
 
@@ -54,6 +54,13 @@ def create_prompt_file(directory, file_list):
         print(f"Error creating prompt file: {e}")
         sys.exit(1)
 
+def get_user_confirmation(message):
+    while True:
+        response = input(message).lower()
+        if response in ['y', 'n']:
+            return response == 'y'
+        print("Invalid input. Please enter 'y' or 'n'.")
+
 def main():
     if len(sys.argv) == 1:
         print("Usage: s2p <directory>")
@@ -73,6 +80,12 @@ def main():
     if not file_list:
         print(f"No text files found in {directory}")
         sys.exit(1)
+    
+    if len(file_list) > 100:
+        message = "You are attempting to combine more than 100 files into prompt.txt. Do you want to continue? (y/n): "
+        if not get_user_confirmation(message):
+            print("Operation cancelled.")
+            sys.exit(0)
     
     create_prompt_file(os.path.abspath(directory), file_list)
     print(f"Prompt file created: {os.path.join(os.path.abspath(directory), 'prompt.txt')}")
