@@ -7,6 +7,9 @@ import re
 def is_text_file(file_path):
     mimetypes.init()
     mime_type, _ = mimetypes.guess_type(file_path)
+    # Recognize .md files explicitly as text files
+    if file_path.lower().endswith('.md'):
+        return True
     return mime_type and mime_type.startswith('text/')
 
 def should_include_file(file_name):
@@ -81,8 +84,8 @@ def main():
         print(f"No text files found in {directory}")
         sys.exit(1)
     
-    if len(file_list) > 100:
-        message = "You are attempting to combine more than 100 files into prompt.txt. Do you want to continue? (y/n): "
+    if len(file_list) > 50:
+        message = "You are attempting to combine more than 50 files into prompt.txt. Do you want to continue? (y/n): "
         if not get_user_confirmation(message):
             print("Operation cancelled.")
             sys.exit(0)
