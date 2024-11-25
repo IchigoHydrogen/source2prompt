@@ -1,3 +1,15 @@
+Metadata-Version: 2.1
+Name: source2prompt
+Version: 0.2.2
+Summary: A simple tool to convert source files to a single prompt file for LLMs
+Home-page: https://github.com/IchigoHydrogen/source2prompt
+Author: IchigoHydrogen
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
 # Source2Prompt
 
 Source2Prompt is a Python package that converts all text files in a directory into a single prompt file for use with Large Language Models (LLMs). It recursively scans the specified directory and its subdirectories, identifies text files based on their MIME types, and combines their contents into a single `prompt.txt` file.

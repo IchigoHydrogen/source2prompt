@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name='source2prompt',
-    version='0.2.1',
+    version='0.2.2',
     packages=['source2prompt'],
     entry_points={
         'console_scripts': [
