@@ -1,1 +1,1 @@
-chardet
+charset_normalizer
