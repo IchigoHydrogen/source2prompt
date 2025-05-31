@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: source2prompt
-Version: 0.2.3
+Version: 0.2.4
 Summary: A simple tool to convert source files to a single prompt file for LLMs
 Home-page: https://github.com/IchigoHydrogen/source2prompt
 Author: IchigoHydrogen

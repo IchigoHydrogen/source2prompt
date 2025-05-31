@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name='source2prompt',
-    version='0.2.2',
+    version='0.2.4',
     packages=['source2prompt'],
     entry_points={
         'console_scripts': [
@@ -13,7 +13,7 @@ setup(
         ]
     },
     install_requires=[
-        'chardet',
+        'charset_normalizer',
     ],
     author='IchigoHydrogen',
     description='A simple tool to convert source files to a single prompt file for LLMs',
@@ -25,6 +25,6 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
     ],
-    python_requires='>=3.8',
+    python_requires='>=3.10',
     include_package_data=True,
 )
