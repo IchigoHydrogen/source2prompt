@@ -1,3 +1,200 @@
+Directory Structure:
+================================================================================
+
+└── source2prompt/
+    ├── source2prompt/
+    │   ├── __init__.py
+    │   └── s2p.py
+    ├── .gitignore
+    ├── MIT-LICENSE.txt
+    ├── README.md
+    ├── prompt.txt
+    ├── requirements.txt
+    └── setup.py
+
+Files Content:
+================================================================================
+
+.gitignore:
+# 仮想環境
+venv/
+env/
+
+# ビルド成果物
+dist/
+build/
+*.egg-info/
+
+# キャッシュ
+__pycache__/
+*.pyc
+*.pyo
+
+# PyPI設定（トークンが含まれる）
+.pypirc
+
+MIT-LICENSE.txt:
+Copyright (c) 2024 IchigoHydrogen
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+prompt.txt:
+
+
+README.md:
+# Source2Prompt
+
+Source2Prompt is a Python package that converts all text files in a directory into a single prompt file for use with Large Language Models (LLMs). It recursively scans the specified directory and its subdirectories, identifies text files based on their MIME types, and combines their contents into a single `prompt.txt` file.
+
+## Installation
+
+You can install Source2Prompt using pip:
+
+```bash
+pip install source2prompt
+```
+
+
+## Usage
+To use Source2Prompt, open a terminal or command prompt and run the following command:
+
+1. Specify a directory:  
+For example, if you want to process text files in the C:\Users\YourName\Documents\MyProject directory, run this:
+```bash
+s2p C:\Users\YourName\Documents\MyProject
+```
+
+2. Use the current directory:
+This command will process the text files in your current working directory:
+```bash
+s2p here
+```
+You can split the output into multiple prompt files using the --cut option:
+
+```bash
+s2p <directory> --cut <number>
+```
+
+After running the command, Source2Prompt will generate a prompt.txt file in the specified directory. This file will contain the contents of all text files found in the directory and its subdirectories.
+
+## Supported File Types
+Source2Prompt identifies text files based on their MIME types. It supports a wide range of text file formats, including but not limited to:
+- Plain text files (.txt)
+- Python files (.py)
+- Markdown files (.md)
+- JSON files (.json)
+- CSV files (.csv)
+- HTML files (.html, .htm)
+- CSS files (.css)
+- JavaScript files (.js)
+
+Any file with a MIME type starting with text/ will be considered a text file and included in the prompt.txt file.
+
+## s2p Output Format
+The generated prompt.txt file will have the following format:
+
+```bash
+path/to/file1.txt:
+Contents of file1.txt
+
+path/to/file2.md:
+Contents of file2.md
+
+...
+```
+
+Each file's content is preceded by its relative path within the specified directory, followed by a colon and a newline. The file contents are then included, followed by two newline characters to separate it from the next file.
+
+## This project is licensed under the MIT License. See the LICENSE file for details.
+
+
+requirements.txt:
+backports.tarfile==1.2.0
+build==1.3.0
+certifi==2025.11.12
+charset-normalizer==3.4.4
+colorama==0.4.6
+docutils==0.22.4
+id==1.5.0
+idna==3.11
+importlib_metadata==8.7.1
+jaraco.classes==3.4.0
+jaraco.context==6.0.2
+jaraco.functools==4.4.0
+keyring==25.7.0
+markdown-it-py==4.0.0
+mdurl==0.1.2
+more-itertools==10.8.0
+nh3==0.3.2
+packaging==25.0
+pathspec==0.12.1
+Pygments==2.19.2
+pyproject_hooks==1.2.0
+pywin32-ctypes==0.2.3
+readme_renderer==44.0
+requests==2.32.5
+requests-toolbelt==1.0.0
+rfc3986==2.0.0
+rich==14.2.0
+tomli==2.3.0
+twine==6.2.0
+urllib3==2.6.2
+zipp==3.23.0
+
+
+setup.py:
+from setuptools import setup
+
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
+setup(
+    name='source2prompt',
+    version='0.3.0',
+    packages=['source2prompt'],
+    entry_points={
+        'console_scripts': [
+            's2p=source2prompt:main'
+        ]
+    },
+    install_requires=[
+        'charset_normalizer',
+        'pathspec',
+    ],
+    author='IchigoHydrogen',
+    description='A simple tool to convert source files to a single prompt file for LLMs',
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url='https://github.com/IchigoHydrogen/source2prompt',
+    classifiers=[
+        'Programming Language :: Python :: 3',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: OS Independent',
+    ],
+    python_requires='>=3.10',
+    include_package_data=True,
+)
+
+
+source2prompt\s2p.py:
 import os
 import sys
 import argparse
@@ -944,3 +1141,9 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+source2prompt\__init__.py:
+from source2prompt.s2p import main
+
+

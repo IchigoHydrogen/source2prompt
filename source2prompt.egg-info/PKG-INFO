@@ -1,6 +1,6 @@
-Metadata-Version: 2.1
+Metadata-Version: 2.4
 Name: source2prompt
-Version: 0.2.4
+Version: 0.3.0
 Summary: A simple tool to convert source files to a single prompt file for LLMs
 Home-page: https://github.com/IchigoHydrogen/source2prompt
 Author: IchigoHydrogen
@@ -9,6 +9,16 @@ Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
 Requires-Python: >=3.10
 Description-Content-Type: text/markdown
+Requires-Dist: charset_normalizer
+Requires-Dist: pathspec
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
 
 # Source2Prompt
 

@@ -1,0 +1,16 @@
+# 仮想環境
+venv/
+env/
+
+# ビルド成果物
+dist/
+build/
+*.egg-info/
+
+# キャッシュ
+__pycache__/
+*.pyc
+*.pyo
+
+# PyPI設定（トークンが含まれる）
+.pypirc
