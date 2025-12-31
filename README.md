@@ -1,11 +1,12 @@
 # Source2Prompt
 
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/source2prompt?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=GREEN&left_text=downloads)](https://pepy.tech/projects/source2prompt)
+
 Source2Prompt is a Python package that converts all text files in a directory into a single prompt file for use with Large Language Models (LLMs). It recursively scans the specified directory and its subdirectories, identifies text files based on their MIME types, and combines their contents into a single `prompt.txt` file.
 
 ## Installation
 
 You can install Source2Prompt using pip:
-
 ```bash
 pip install source2prompt
 ```
@@ -26,7 +27,6 @@ This command will process the text files in your current working directory:
 s2p here
 ```
 You can split the output into multiple prompt files using the --cut option:
-
 ```bash
 s2p <directory> --cut <number>
 ```
@@ -48,7 +48,6 @@ Any file with a MIME type starting with text/ will be considered a text file and
 
 ## s2p Output Format
 The generated prompt.txt file will have the following format:
-
 ```bash
 path/to/file1.txt:
 Contents of file1.txt
