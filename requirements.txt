@@ -17,7 +17,7 @@ more-itertools==10.8.0
 nh3==0.3.2
 packaging==25.0
 pathspec==0.12.1
-Pygments==2.19.2
+Pygments==2.20.0
 pyproject_hooks==1.2.0
 pywin32-ctypes==0.2.3
 readme_renderer==44.0
